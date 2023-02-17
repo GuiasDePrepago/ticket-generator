@@ -1,0 +1,18 @@
+.app__form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 5%;
+}
+
+.app__form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app__productButton {
+    margin-top: 20%;
+    height: 50%;
+}

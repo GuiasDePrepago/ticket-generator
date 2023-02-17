@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.pdf__container {
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+
+.pdf__background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.pdf__header {
+    display: flex;
+    justify-content: center;
+    padding-top: 2%; 
+    width: 100%; 
+}
+
+.pdf__header img {
+    width: 5%;
+    padding: 2%;
+}
+
+.pdf__headerTitles {
+    padding-right: 2%;
+}
+
+.pdf__headerTitles h2 {
+    font-size: 1rem;
+}
+
+.pdf__headerTitles h3 {
+    font-size: .9rem;
+}
+
+.pdf__headerTicket {
+    text-align: end;
+    width: 12%;
+}
+
+.bg--grey {
+    background-color: #d1d1d1;
+}
+
+.pdf__receptor {
+    display: flex;
+    justify-content: center;
+    border-top: solid 1px #d1d1d1;
+    border-bottom: solid 1px #d1d1d1;
+    padding: 1% 0;
+}
+
+.pdf__receptorTitle {
+    transform: rotate(-90deg);
+    text-align: center;
+}
+
+.pdf__receptorTitle h2 {
+    font-size: 1rem;
+}
+
+.pdf__receptorInfo p {
+    font-size: .9rem;
+    margin: 4px 0;
+}
+
+.pdf__receptorInfo {
+    
+    margin: 0 2%;
+}
+
+.pdf__table {
+    display: flex;
+    justify-content: center; 
+    padding: 1% 0;
+    margin-bottom: 15%;
+}
+
+.pdf__table table {
+    border-collapse: separate;
+    border-spacing: 35px 0;
+}
+
+.pdf__table tr {
+    margin: 5%;
+    
+}
+
+.pdf__table th {
+    font-size: .9rem;
+}
+
+.pdf__table td {
+    font-size: .8rem;
+    
+}
+
+.pdf__table tbody {
+    border-top: 1em solid transparent;
+}
+
+.pdf__footerContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pdf__info {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pdf__vendedor {
+    display: flex;
+    border-top: solid 1px #d1d1d1;
+    border-bottom: solid 1px #d1d1d1;
+    padding: 7% 0;
+    width: 70%;
+}
+
+.pdf__vendedor h2 {
+    transform: rotate(-90deg);
+    width: 15%;
+    font-size: 1.2rem;
+}
+
+.pdf__vendedor p {
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: -5%;
+    border-top: solid 2px #000;
+}
+
+.pdf__footer {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
