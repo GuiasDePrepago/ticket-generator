@@ -23,19 +23,23 @@ function PDF({
             celCliente,
             productos,
             vendedor,
+            subtotal,
+            deleteData
         }) {  
-    const [subtotal, setSubtotal] = useState() 
+    // const [subtotal, setSubtotal] = useState() 
 
-    const handleTotal = () => {
-        setSubtotal(productos.reduce( (acc, item) => {
-            return acc = acc + item.importe; 
-        }, 0));
+    // const handleTotal = () => {
+    //     setSubtotal(productos.reduce( (acc, item) => {
+    //         return acc = acc + item.importe; 
+    //     }, 0));
+    // }
+
+    if (deleteData) {
+        productos = [];
     }
-
-    console.log(subtotal)
     return (
         <>  
-            <button onClick={handleTotal}>Calcular Total</button>
+            {/* <button onClick={handleTotal}>Calcular Total</button> */}
             <div className='pdf__container'>
                 <div className='pdf__background' style={{
                 backgroundImage: `url(${logo})`

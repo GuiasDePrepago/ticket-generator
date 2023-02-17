@@ -4,6 +4,8 @@
 .pdf__container {
     font-family: 'Montserrat', sans-serif;
     position: relative;
+    width: 100%;
+    
 }
 
 .pdf__background {
@@ -21,14 +23,16 @@
 
 .pdf__header {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
     padding-top: 2%; 
     width: 100%; 
 }
 
 .pdf__header img {
-    width: 5%;
-    padding: 2%;
+    width: 15%;
+    padding: 1%;
+    
 }
 
 .pdf__headerTitles {
@@ -83,7 +87,7 @@
     display: flex;
     justify-content: center; 
     padding: 1% 0;
-    margin-bottom: 15%;
+    padding-bottom: 15%;
 }
 
 .pdf__table table {
@@ -112,11 +116,12 @@
 .pdf__footerContainer {
     display: flex;
     align-items: center;
+    width: 100%;
     flex-direction: column;
 }
 
 .pdf__info {
-    width: 50%;
+    width: 85%;
     display: flex;
     justify-content: space-between;
 }

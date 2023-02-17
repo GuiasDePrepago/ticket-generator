@@ -1,41 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Form from './components/Form/Form';
 import PDF from './components/PDF/PDF';
+import ReactPrint from './components/ReactPrint/ReactPrint';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button'
 import './App.css'
 
 function App() {
-  const [logo, setLogo] = useState("")
-  const [empresa, setEmpresa] = useState("")
-  const [rfcEmpresa, setRfcEmpresa] = useState("")
-  const [calleEmpresa, setCalleEmpresa] = useState("")
-  const [coloniaEmpresa, setColoniaEmpresa] = useState("")
-  const [cpEmpresa, setCpEmpresa] = useState("")
-  const [ciudadEmpresa, setCiudadEmpresa] = useState("")
-  const [celEmpresa, setCelEmpresa] = useState("")
-  const [emailEmpresa, setEmailEmpresa] = useState("")
-  const [ticket, setTicket] = useState("")
-  const [date, setDate] = useState("")
-  const [nombreCliente, setNombreCliente] = useState("")
-  const [emailCliente, setEmailCliente] = useState("")
-  const [domicilioCliente, setDomicilioCliente] = useState("")
-  const [coloniaCliente, setColoniaCliente] = useState("")
-  const [ciudadCliente, setCiudadCliente] = useState("")
-  const [rfcCliente, setRfcCliente] = useState("")
-  const [telCliente, setTelCliente] = useState("")
-  const [celCliente, setCelCliente] = useState("")
-  const [clave, setClave] = useState("")
-  const [cantidad, setCantidad] = useState("")
-  const [unidad, setUnidad] = useState("")
-  const [descripcion, setDescripcion] = useState("")
-  const [precio, setPrecio] = useState("")
-  const [descuento, setDescuento] = useState("")
-  const [productos, setProductos] = useState([])
-  const [vendedor, setVendedor] = useState("")
-  const [subtotal, setSubtotal] = useState(0)
-
-  
+  const [logo, setLogo] = useState("");
+  const [empresa, setEmpresa] = useState("");
+  const [rfcEmpresa, setRfcEmpresa] = useState("");
+  const [calleEmpresa, setCalleEmpresa] = useState("");
+  const [coloniaEmpresa, setColoniaEmpresa] = useState("");
+  const [cpEmpresa, setCpEmpresa] = useState("");
+  const [ciudadEmpresa, setCiudadEmpresa] = useState("");
+  const [celEmpresa, setCelEmpresa] = useState("");
+  const [emailEmpresa, setEmailEmpresa] = useState("");
+  const [ticket, setTicket] = useState("");
+  const [date, setDate] = useState("");
+  const [nombreCliente, setNombreCliente] = useState("");
+  const [emailCliente, setEmailCliente] = useState("");
+  const [domicilioCliente, setDomicilioCliente] = useState("");
+  const [coloniaCliente, setColoniaCliente] = useState("");
+  const [ciudadCliente, setCiudadCliente] = useState("");
+  const [rfcCliente, setRfcCliente] = useState("");
+  const [telCliente, setTelCliente] = useState("");
+  const [celCliente, setCelCliente] = useState("");
+  const [clave, setClave] = useState("");
+  const [cantidad, setCantidad] = useState("");
+  const [unidad, setUnidad] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [precio, setPrecio] = useState("");
+  const [descuento, setDescuento] = useState("");
+  const [productos, setProductos] = useState([]);
+  const [vendedor, setVendedor] = useState("");
+  const [subtotal, setSubtotal] = useState(0);
+  const [deleteData, setDeleteData] = useState(false);
 
   const logoHandler = (e) => {
     let file = e.target.files[0];
@@ -55,7 +55,20 @@ function App() {
     }]
     
     setProductos(current => [...current, ...arr]);
+
+    
   }
+  
+
+  const handleDelete = () => {
+    setProductos([])
+  }
+
+  useEffect(() => {
+    setSubtotal(productos.reduce( (acc, item) => {
+      return acc = acc + item.importe; 
+    }, 0));
+  }, [handleProduct]);
 
   return (
     <div className="App">
@@ -104,32 +117,41 @@ function App() {
           <Button type="submit" className='app__productButton' variant="contained">
             Subir Producto
           </Button>
+          <Button onClick={handleDelete} color="error" className='app__productButton' variant="contained">
+            Borrar Productos
+          </Button>
         </form>
+        
       </div>
 
-      <PDF 
-        logo={logo} 
-        empresa={empresa} 
-        rfcEmpresa={rfcEmpresa} 
-        calleEmpresa={calleEmpresa} 
-        coloniaEmpresa={coloniaEmpresa} 
-        cpEmpresa={cpEmpresa} 
-        ciudadEmpresa={ciudadEmpresa} 
-        celEmpresa={celEmpresa}
-        emailEmpresa={emailEmpresa}
-        ticket={ticket} 
-        date={date} 
-        nombreCliente={nombreCliente}
-        emailCliente={emailCliente}
-        domicilioCliente={domicilioCliente}
-        coloniaCliente={coloniaCliente}
-        ciudadCliente={ciudadCliente}
-        rfcCliente={rfcCliente}
-        telCliente={telCliente}
-        celCliente={celCliente}
-        productos={productos}
-        vendedor={vendedor}
-      />
+      <ReactPrint className="print__button">
+        <PDF 
+          logo={logo} 
+          empresa={empresa} 
+          rfcEmpresa={rfcEmpresa} 
+          calleEmpresa={calleEmpresa} 
+          coloniaEmpresa={coloniaEmpresa} 
+          cpEmpresa={cpEmpresa} 
+          ciudadEmpresa={ciudadEmpresa} 
+          celEmpresa={celEmpresa}
+          emailEmpresa={emailEmpresa}
+          ticket={ticket} 
+          date={date} 
+          nombreCliente={nombreCliente}
+          emailCliente={emailCliente}
+          domicilioCliente={domicilioCliente}
+          coloniaCliente={coloniaCliente}
+          ciudadCliente={ciudadCliente}
+          rfcCliente={rfcCliente}
+          telCliente={telCliente}
+          celCliente={celCliente}
+          productos={productos}
+          vendedor={vendedor}
+          subtotal={subtotal}
+          deleteData={deleteData}
+        />
+      </ReactPrint>
+
     </div>
   )
 }

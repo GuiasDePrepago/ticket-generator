@@ -16,3 +16,11 @@
     margin-top: 20%;
     height: 50%;
 }
+
+.app__totalButton {
+    width: 20%;
+}
+
+.print__button {
+    z-index: 100;
+}
